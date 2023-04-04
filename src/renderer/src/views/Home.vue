@@ -5,12 +5,14 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const activePath = ref(route.path)
+const platform = ref(window.electron.process.platform)
 </script>
 
 <template>
   <el-container style="height: 100%">
     <el-aside width="200px" style="height: 100%">
-      <el-menu router :default-active="activePath" style="height: 100%; padding-top: 30px">
+      <div v-if="platform === 'darwin'" style="height: 30px; width: 100%"></div>
+      <el-menu router :default-active="activePath" style="height: 100%">
         <el-sub-menu index="/file">
           <template #title>
             <el-icon><upload-filled /></el-icon>文件上传
