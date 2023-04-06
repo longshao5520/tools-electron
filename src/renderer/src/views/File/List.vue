@@ -2,7 +2,7 @@
 import CardLayout from '@renderer/components/CardLayout.vue'
 import { createFromIconfontCN } from '@ant-design/icons-vue'
 import { DocumentCopy, DeleteFilled } from '@element-plus/icons-vue'
-import { useUploadFile } from '@renderer/store/useUploadFile'
+import { useUploadFile } from '@renderer/store/useUploadFileStore'
 
 const store = useUploadFile()
 

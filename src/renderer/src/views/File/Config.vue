@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DeleteFilled, Edit } from '@element-plus/icons-vue'
-import { UploadConfig, useUploadFile } from '@renderer/store/useUploadFile'
+import { UploadConfig, useUploadFile } from '@renderer/store/useUploadFileStore'
 import { reactive, ref } from 'vue'
 
 const store = useUploadFile()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UploadConfig, useUploadFile } from '@renderer/store/useUploadFile'
+import { UploadConfig, useUploadFile } from '@renderer/store/useUploadFileStore'
 import { ref } from 'vue'
 
 const store = useUploadFile()
