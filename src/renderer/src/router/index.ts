@@ -25,7 +25,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/qrCode',
         name: 'QrCode',
-        component: () => import('@renderer/views/QrCode.vue')
+        component: () => import('@renderer/views/QrCode/Index.vue')
+      },
+      {
+        path: '/qrCode/history',
+        name: 'QrCodeHistory',
+        component: () => import('@renderer/views/QrCode/History.vue')
       },
       {
         path: '/setting',
