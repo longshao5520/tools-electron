@@ -81,16 +81,16 @@ watchEffect(async () => {
     },
     dotsOptions: {
       type: form.dotsOptionsType,
-      color: form.dotsOptionsColor,
-      gradient: {
-        type: 'linear',
-        rotation: 10,
-        colorStops: [
-          { offset: 0, color: '#26240a' },
-          { offset: 1, color: '#262490' }
-          // { offset: 2, color: '#322490' }
-        ]
-      }
+      color: form.dotsOptionsColor
+      // gradient: {
+      //   type: 'linear',
+      //   rotation: 10,
+      //   colorStops: [
+      //     { offset: 0, color: '#26240a' },
+      //     { offset: 1, color: '#262490' }
+      //     // { offset: 2, color: '#322490' }
+      //   ]
+      // }
     },
     backgroundOptions: { color: form.backgroundColor },
     cornersSquareOptions: {
