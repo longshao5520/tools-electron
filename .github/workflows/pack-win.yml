@@ -1,0 +1,19 @@
+name: Build Win
+on:
+  push:
+    branches:
+      - master
+jobs:
+  pack:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install and Build
+      run: |
+        npm install
+        npm run build:win
+    - name: Upload file
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows
+        path: dist/*exe
