@@ -1,12 +1,9 @@
 name: Build Mac
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - master
 jobs:
   pack:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install and Build

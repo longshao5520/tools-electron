@@ -1,9 +1,6 @@
 name: Build Win
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - master
 jobs:
   pack:
     runs-on: windows-latest
