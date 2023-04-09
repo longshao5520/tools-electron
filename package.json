@@ -31,7 +31,9 @@
     "lodash": "^4.17.21",
     "pinia": "^2.0.33",
     "pinia-plugin-persistedstate": "^3.1.0",
+    "png-to-ico": "^2.1.8",
     "qrcode-vue3": "^1.4.17",
+    "vite-plugin-commonjs-externals": "^0.1.1",
     "vue-router": "4"
   },
   "devDependencies": {
