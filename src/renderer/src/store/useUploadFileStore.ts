@@ -62,7 +62,15 @@ export const useUploadFile = defineStore({
       }
     },
     removeConfig(config: UploadConfig) {
-      this.configs = this.configs.filter((item) => item.id === config.id)
+      if (this.configs.length === 1) {
+        ElMessage.error('至少保留一个配置')
+        return
+      }
+      if (this.activeConfig.id === config.id) {
+        ElMessage.error('请先切换到其他配置')
+        return
+      }
+      this.configs = this.configs.filter((item) => item.id !== config.id)
     },
     setActiveConfig(config: UploadConfig) {
       this.activeConfig = config
@@ -79,6 +87,10 @@ export const useUploadFile = defineStore({
         size: file.size as number,
         type: file.raw?.type as string
       })
+      const formatUrl = this.formatLink(url)
+      navigator.clipboard.writeText(formatUrl).then(() => {
+        ElMessage.success(`上传成功，链接已复制到剪切板`)
+      })
     },
     copyFile(file: MyUploadFile) {
       const { url } = file
@@ -91,6 +103,15 @@ export const useUploadFile = defineStore({
     },
     switchLinkFormat(format: string) {
       this.linkFormat = format
+    },
+    formatLink(url: string) {
+      if (this.linkFormat === 'html') {
+        return `<img src="${url}" />`
+      } else if (this.linkFormat === 'markdown') {
+        return `![${url}](${url})`
+      } else {
+        return url
+      }
     }
   },
   persist: true

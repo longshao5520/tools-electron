@@ -24,7 +24,8 @@ const switchActive = (value: string): void => {
   >
     <div class="upload-section">
       <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-      <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
+      <!-- <div class="el-upload__text">Drop file here or <em>click to upload</em></div> -->
+      <div class="el-upload__text">将文件拖到此处或者<em>点击上传</em></div>
     </div>
   </el-upload>
   <el-row :gutter="20" style="margin-top: 20px">
