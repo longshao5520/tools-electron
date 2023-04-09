@@ -64,17 +64,20 @@ const skip = (item: any): void => {
 </script>
 
 <template>
-  <el-row :gutter="20" style="min-width: 648px">
+  <!--  style="min-width: 648px" -->
+  <el-row :gutter="20">
     <el-col v-for="(item, index) in list" :key="index" :xs="12" :sm="8" :md="8" :lg="4">
       <el-card @click="skip(item)">
         <div :style="contentStyle">
-          <slot name="icon" :item="item">
+          <slot name="icon" :item="item" :index="index">
             <el-icon :style="item.iconStyle">
               <component :is="item[iconKey]" />
             </el-icon>
           </slot>
-          <slot name="title" :item="item">
-            <div>{{ item[titleKey] }}</div>
+          <slot name="title" :item="item" :index="index">
+            <el-tooltip effect="dark" :content="item[titleKey]" placement="top">
+              <div class="title">{{ item[titleKey] }}</div>
+            </el-tooltip>
           </slot>
         </div>
       </el-card>
@@ -82,4 +85,14 @@ const skip = (item: any): void => {
   </el-row>
 </template>
 
-<style scoped></style>
+<style scoped>
+.title {
+  /* font-size: 14px;
+  color: #333;
+  margin-top: 10px; */
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
