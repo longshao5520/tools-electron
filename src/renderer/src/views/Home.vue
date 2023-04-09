@@ -34,7 +34,7 @@ const platform = ref(window.electron.process.platform)
             </template>
           </el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="/file">
+        <el-sub-menu index="/qrCode">
           <template #title>
             <el-icon><QrcodeOutlined /></el-icon>二维码
           </template>
@@ -57,10 +57,24 @@ const platform = ref(window.electron.process.platform)
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-main>
+    <el-main class="main">
       <router-view></router-view>
     </el-main>
   </el-container>
 </template>
 
-<style></style>
+<style scoped>
+.main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 100px;
+}
+</style>
