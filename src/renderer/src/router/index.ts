@@ -33,37 +33,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@renderer/views/QrCode/History.vue')
       },
       {
+        path: '/pngToIco',
+        name: 'PngToIco',
+        component: () => import('@renderer/views/PngToIco/Index.vue')
+      },
+      {
         path: '/setting',
         name: 'Settings',
         component: () => import('@renderer/views/Settings.vue')
       }
     ]
-    // },
-    // {
-    //   path: '/file',
-    //   component: () => import('@renderer/views/File/Index.vue'),
-    //   children: [
-    //     {
-    //       path: '/file/upload',
-    //       name: 'FileUpload',
-    //       component: () => import('@renderer/views/File/Upload.vue')
-    //     },
-    //     {
-    //       path: '/file/list',
-    //       name: 'FileList',
-    //       component: () => import('@renderer/views/File/List.vue')
-    //     },
-    //     {
-    //       path: '/file/config',
-    //       name: 'UploadConfig',
-    //       component: () => import('@renderer/views/File/Config.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: '/setting',
-    //   name: 'Settings',
-    //   component: () => import('@renderer/views/Settings.vue')
   }
 ]
 

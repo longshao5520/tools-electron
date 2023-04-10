@@ -1,7 +1,10 @@
-import { app, shell, BrowserWindow, ipcMain, nativeTheme, Menu } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, nativeTheme, Menu, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/app-icon.png?asset'
+import pngToIco from 'png-to-ico'
+import fs from 'fs'
+
 app.setName('tools-electron')
 
 function createWindow(): void {
@@ -113,4 +116,25 @@ ipcMain.handle('dark-mode', () => {
 ipcMain.handle('dark-mode:change', (_, type: 'system' | 'light' | 'dark') => {
   nativeTheme.themeSource = type
   return nativeTheme.themeSource
+})
+
+ipcMain.handle('png-to-ico', async () => {
+  try {
+    const pngPath = dialog.showOpenDialogSync({
+      title: '选择需要转换的png图片',
+      filters: [{ name: 'png', extensions: ['png'] }],
+      properties: ['openFile'] // 选择文件
+    }) as string[]
+    const ico = await pngToIco(pngPath[0])
+    const icoSavePath = dialog.showSaveDialogSync({
+      title: '选择保存ico文件的路径',
+      defaultPath: 'icon.ico',
+      filters: [{ name: 'ico', extensions: ['ico'] }],
+      properties: ['createDirectory'] // 选择文件
+    }) as string
+    fs.writeFileSync(icoSavePath, ico)
+    return true
+  } catch (e) {
+    return e
+  }
 })

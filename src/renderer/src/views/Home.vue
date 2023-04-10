@@ -50,6 +50,11 @@ const platform = ref(window.electron.process.platform)
             </template>
           </el-menu-item>
         </el-sub-menu>
+        <el-menu-item index="/pngToIco">
+          <template #title>
+            <el-icon><HistoryOutlined /></el-icon>png-to-ico
+          </template>
+        </el-menu-item>
         <el-menu-item index="/setting">
           <template #title>
             <el-icon><setting /></el-icon>设置
