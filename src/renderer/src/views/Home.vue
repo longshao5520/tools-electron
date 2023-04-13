@@ -11,7 +11,7 @@ const platform = ref(window.electron.process.platform)
 <template>
   <div v-if="platform === 'darwin'" style="height: 30px; width: 100%"></div>
   <el-container :style="{ height: platform === 'darwin' ? 'calc(100% - 30px)' : '100%' }">
-    <el-aside width="200px" style="height: 100%">
+    <el-aside width="200px" style="height: 100%" class="aside">
       <el-menu router :default-active="activePath" style="height: 100%">
         <el-sub-menu index="/file">
           <template #title>
@@ -69,15 +69,18 @@ const platform = ref(window.electron.process.platform)
 </template>
 
 <style scoped>
+.aside::-webkit-scrollbar,
 .main::-webkit-scrollbar {
   width: 8px;
 }
 
+.aside::-webkit-scrollbar-track,
 .main::-webkit-scrollbar-track {
   background-color: #e4e4e4;
   border-radius: 100px;
 }
 
+.aside::-webkit-scrollbar-thumb,
 .main::-webkit-scrollbar-thumb {
   background-color: #c1c1c1;
   border-radius: 100px;
