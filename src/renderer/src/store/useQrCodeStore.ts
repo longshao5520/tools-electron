@@ -36,7 +36,7 @@ export const useQrCodeStore = defineStore({
   id: 'qrCode',
   state: () => ({
     list: [] as QrCode[],
-    cache: {
+    active: {
       value: 'ceshi',
       icon: constant.defaultIcon,
       backgroundColor: '#ffffff',
@@ -90,7 +90,7 @@ export const useQrCodeStore = defineStore({
         }
       })
       qrCode.image = await qrCodeStyling.getImageUrl('png')
-      this.cache = qrCode
+      this.active = qrCode
       return qrCode.image
     },
     addQrCode(qrCode: QrCode) {

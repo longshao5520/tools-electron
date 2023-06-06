@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { QrcodeOutlined, HistoryOutlined } from '@ant-design/icons-vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const activePath = ref(route.path)
+const activePath = computed(() => route.path)
 const platform = ref(window.electron.process.platform)
 </script>
 

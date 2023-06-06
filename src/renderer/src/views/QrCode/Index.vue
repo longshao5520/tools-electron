@@ -22,7 +22,7 @@ const getBase64 = (file): Promise<string> => {
 
 const store = useQrCodeStore()
 
-const form = reactive<QrCode>(store.$state.cache)
+const form = reactive<QrCode>(store.$state.active)
 
 watchEffect(async () => {
   form.image = await store.generateQrCode(form)
